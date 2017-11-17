@@ -323,7 +323,8 @@ function handleMessage(currentUser, senderID, message, isEcho, messageId, appId,
   }
 }
 
-function sendtobot(senderID, message) {
+function sendToBot(senderID, message){
+	
 	var request = bot.textRequest(message, {
     sessionId: senderID
 });
@@ -333,9 +334,14 @@ request.on('response', function(response) {
 	if(response){
 		const result = response.result;
 		if(result){
+			
 			const fulfillment = result.fulfillment;
-		if(fulfillment && fulfillment.speech && fulfillment.speech.length > 0){sendTextMessage(senderID, fulfillment.speech);
-	}}}
+			if(fulfillment && fulfillment.speech && fulfillment.speech.length > 0){
+				sendTextMessage(senderID, fulfillment.speech);
+			}
+			
+		}
+	}
 });
 
 request.on('error', function(error) {
@@ -343,7 +349,10 @@ request.on('error', function(error) {
 });
 
 request.end();
+	
 }
+Fin de la conversación
+Escribe un mensaje...
 
 function showMenu(senderID) {
   var messageData = {
