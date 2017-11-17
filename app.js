@@ -315,7 +315,7 @@ function handleMessage(currentUser, senderID, message, isEcho, messageId, appId,
     }
     else {
      // sendTextMessage(senderID, messageText);
-	 sendTobot(senderID, messageText);
+	 sendToBot(senderID, messageText);
     }
   }
   else if (messageAttachments) {
