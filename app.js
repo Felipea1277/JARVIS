@@ -314,8 +314,8 @@ function handleMessage(currentUser, senderID, message, isEcho, messageId, appId,
       getUsername(senderID);
     }
     else {
-     // sendTextMessage(senderID, messageText);
-	 sendToBot(senderID, messageText);
+      //sendTextMessage(senderID, messageText);
+	  sendToBot(senderID, messageText);
     }
   }
   else if (messageAttachments) {
@@ -339,28 +339,30 @@ request.on('response', function(response) {
 			if(fulfillment && fulfillment.speech && fulfillment.speech.length > 0){
 				sendTextMessage(senderID, fulfillment.speech);
 			}
-			else {
+			else{
+				
 				const action = result.action;
 				const parameters = result.parameters;
-				consolo.log('action: ', action);
+				console.log('action: ', action);
 				console.log('parameters: ', parameters);
-				switch (action) {
-					case 'account.balance' :
-					sendTextMessage(senderID, 'get account balance');
+				switch(action){
+					case 'account.balance':
+					//aqui se deberia obrener el balance
+					sendTextMessage(senderID, 'get account balance');					
 					break;
 					case 'account.movement':
 					sendTextMessage(senderID, 'get account movement');
-					break;
+					break;			
 					default:
 					console.log('unknown action...');
 					break;
+					
 				}
+				
 			}
+			
 		}
 	}
-			
-	
-	
 });
 
 request.on('error', function(error) {
