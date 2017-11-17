@@ -351,8 +351,7 @@ request.on('error', function(error) {
 request.end();
 	
 }
-Fin de la conversación
-Escribe un mensaje...
+
 
 function showMenu(senderID) {
   var messageData = {
